@@ -10,4 +10,8 @@ export class Admin {
     get login() {
         return this._login;
     }
+
+    loginData() {
+        
+    }
 }
