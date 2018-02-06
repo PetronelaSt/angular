@@ -48,5 +48,19 @@ export class ZamestnanciComponent implements OnInit {
   }
 
   //!handler
-  zamestnanecEditEventHandler(zamestnanec: Zamestnanec) { }
+  zamestnanecEditEventHandler(zamestnanec: Zamestnanec) {
+    if (this.akcia == "add") {
+      this.stavKomunikacie = null;
+      this.ZamestnanciService.addZamestnanec(zamestnanec).subscribe(_ => {
+        this.stavKomunikacie = 'ok';
+      },
+        error => {
+          console.log("Nastala chyba: " + JSON.stringify(error));
+          this.stavKomunikacie = 'error';
+        });
+    }
+    else {
+      this.zamestnanci2.splice(this.vybratyZamestnanecIndex, 1, zamestnanec);
+    }
+  }
 }

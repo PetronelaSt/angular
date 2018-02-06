@@ -18,7 +18,7 @@
               <span class="input-group-addon">
                 <i class="fa fa-user fa" aria-hidden="true"></i>
               </span>
-              <input type="text" class="form-control" name="login" id="login" placeholder="Zadajte svoje prihlasovacie meno" />
+              <input type="text" class="form-control" name="login" placeholder="Zadajte svoje prihlasovacie meno" [(ngModel)]="admin.login" />
             </div>
           </div>
         </div>
@@ -30,17 +30,16 @@
               <span class="input-group-addon">
                 <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
               </span>
-              <input type="password" class="form-control" name="heslo" id="heslo" placeholder="Zadajte svoje prihlasovacie heslo" />
+              <input type="password" class="form-control" name="heslo" placeholder="Zadajte svoje prihlasovacie heslo" [(ngModel)]="admin.heslo" />
             </div>
           </div>
         </div>
 
         <div class="udaje">
           <button type="button" class="btn btn-primary btn-lg btn-block login-button">Prihlásiť</button>
+          <!--Ak sa prihlasi ma sa mu zobraziť admin okno-->
+          <app-admin></app-admin>
         </div>
-         
-        <!--Ak sa prihlasi ma sa mu zobraziť admin okno-->
-        <app-admin></app-admin>
 
         <!--Môže sa dorobiť registračny formular-zatialodkazuje na tu istu stranku-oni ho pôvodne nemajú vôbec-->
         <div class="login-register">
