@@ -1,0 +1,45 @@
+<h2>Zoznam konzultantov</h2>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>login konzultanta</th>
+    <th>pocet zamestnancov</th>
+  </tr>
+  </thead>
+  <tbody>
+    <!-- Treba spraviť upravKonzultantaClick -->
+  <tr *ngFor="let konzultant of vsetciKonzultanti" (click)="select(konzultant)" (dblclick)="upravKonzultantaClick(konzultant)">
+  <td>{{konzultant.login}}</td>
+  <td>{{konzultant.zamestnanci}}</td>
+  </tr>
+  </tbody>
+</table>
+<p>
+  vypis vsetkych z db
+  pridanie
+</p>
+<!-- tu bude button na pridanie konzultanta -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#bootstrapModel">Pridaj konzultanta</button>
+<div id="bootstrapModel" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- obsah modalneho okna -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Pridanie nového konzultanta</h4>
+      </div>
+      <div class="modal-body">
+        <p>Telo okna - bude vyplnenie informácii o konzultantovi
+        (Bank account)
+        Zadaj login
+        Zadaj heslo
+        Počet zamestnancov
+        Admin checkbox
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Pridaj</button>
+      </div>
+    </div>
+  </div>
+</div>

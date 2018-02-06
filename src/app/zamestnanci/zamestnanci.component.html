@@ -1,0 +1,53 @@
+<h2>Zoznam zamestnancov</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Meno</th>
+      <th>Priezvisko</th>
+      <th>id Konzultanta 1</th>
+      <th>id Konzultanta 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Treba spraviť upravZamestnancaClick -->
+    <!-- Vždy sú najviac dvaja, takže nemusíme robiť cyklus, ale zatiaľ -->
+    <tr *ngFor="let zamestnanec of vsetciZamestnanci" (click)="select(zamestnanec)" (dblclick)="upravZamestnancaClick(zamestnanec)">
+      <td>{{zamestnanec.name}}</td>
+      <td>{{zamestnanec.surname}}</td>
+      <!-- Meno maju dediť od Osoby, ešte neviem ako -->
+      <td>{{zamestnanec.consultantId}}</td>
+      <td>{{zamestnanec.secondConsultantId}}</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  Výpis zamestnancov: {{zamestnanciJson}}
+</p>
+<p *ngIf="vybratyZamestnanec">Vybratý zamestnanec: {{vybratyZamestnanec.id}}</p>
+
+<p>
+  POTREBNE: vypis vsetkych z db pridanie
+</p>
+<!-- tu bude button na pridanie zamestnanca -->
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#addZamestnanecModal" (click)="addZamestnanecButton()">Pridaj zamestnanca</button>
+<app-user-edit (eventEmiter)="zamestnanecEditEventHandler($event)" [zamestnanec]="vybratyZamestnanec" [akcia]="akcia"></app-user-edit>
+<div id="bootstrapModel" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- obsah modalneho okna -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Pridanie nového zamestnanca</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          Telo okna - bude vyplnenie informácii o zamestnancovi POZOR! každý môže mať najviac / ideálne 2 konzultantov Zadaj pracovisko
+          Zadaj dátum nástupu do práce Zadaj adresu Zadaj id konzultanta 1 Zadaj id konzultanta 2 Zadaj tel.číslo
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Pridaj</button>
+      </div>
+    </div>
+  </div>
+</div>
