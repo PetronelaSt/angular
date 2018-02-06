@@ -4,7 +4,7 @@
   <div class="row main">
     <div class="panel-heading">
       <div class="panel-title text-center">
-        <h1 class="title">Vitajte v app Personálka</h1>
+        <h1 class="title">Vitajte v app {{title}}</h1>
       </div>
     </div>
 
@@ -38,8 +38,11 @@
         <div class="udaje">
           <button type="button" class="btn btn-primary btn-lg btn-block login-button">Prihlásiť</button>
         </div>
+         
+        <!--Ak sa prihlasi ma sa mu zobraziť admin okno-->
+        <app-admin></app-admin>
 
-        <!--Môže sa dorobiť regostračny formular-zatialodkazuje na tu istu stranku-oni ho pôvodne nemajú vôbec-->
+        <!--Môže sa dorobiť registračny formular-zatialodkazuje na tu istu stranku-oni ho pôvodne nemajú vôbec-->
         <div class="login-register">
           <a href="index.php">Registrovať</a>
         </div>
@@ -47,5 +50,6 @@
     </div>
   </div>
 </div>
+
 
 <script type="text/javascript" src="assets/js/bootstrap.js"></script>
